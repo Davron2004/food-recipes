@@ -1,0 +1,15 @@
+Flask
+Flask-SQLAlchemy
+flask-cors
+flask-jwt-extended
+flasgger
+apispec
+apispec-webframeworks
+marshmallow
+marshmallow-sqlalchemy
+gunicorn
+psycopg2-binary
+Pillow
+jinja2
+pytest
+python-dotenv

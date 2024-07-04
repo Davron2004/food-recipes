@@ -1,0 +1,26 @@
+services:
+  backend:
+    build: .
+    command: python manage.py run -h 0.0.0.0
+    ports:
+      - 8002:${PORT}
+    env_file:
+      # Load environment variables to container from .env file
+      - .env
+    depends_on:
+      - db
+  db:
+    image: postgres:13
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      # DB_USER, DB_PASS, DB_NAME are defined in .env file
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DB=${DB_NAME}
+
+volumes:
+  postgres_data:
+    driver: local
